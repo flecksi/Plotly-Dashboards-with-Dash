@@ -6,31 +6,39 @@
 ######
 
 # Perform imports here:
-
-
+import plotly.offline as pyo
+import plotly.graph_objs as go
+import pandas as pd
+import numpy as np
 
 
 
 # create a DataFrame from the .csv file:
-
-
+df = pd.read_csv('../data/abalone.csv')
+print(df.head())
 # take two random samples of different sizes:
-
+A = np.random.choice(df['rings'],10,replace=False)
+B = np.random.choice(df['rings'],10,replace=False)
 
 
 # create a data variable with two Box plots:
-
-
-
-
-
-
-
-
-
+data = [
+    go.Box(
+        y=A,
+        name='A'
+    ),
+    go.Box(
+        y=B,
+        name='B'
+    )]
 
 
 # add a layout
+layout = go.Layout(
+    title = '2 random Abalone samples from the same population'
+)
+fig = go.Figure(data=data, layout=layout)
+pyo.plot(fig, filename='box_Exercise.html')
 
 
 
