@@ -7,6 +7,7 @@ app = dash.Dash()
 
 colors = {
     'background': '#111111',
+    'background2': '#999999',
     'text': '#7FDBFF'
 }
 
@@ -36,7 +37,7 @@ app.layout = html.Div(children=[
             ],
             'layout': {
                 'plot_bgcolor': colors['background'],
-                'paper_bgcolor': colors['background'],
+                'paper_bgcolor': colors['background2'],
                 'font': {
                     'color': colors['text']
                 },
